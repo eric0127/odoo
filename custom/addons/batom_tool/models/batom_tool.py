@@ -110,9 +110,11 @@ class BatomCutterModel(models.Model):
                 product_code += product.default_code
         self.product_ids_code = product_code
 
+    @api.one
+    @api.depends('cutter_ids', 'cutter_ids.total')
     def _compute_cutter_count(self):
         if self.cutter_ids:
-            self.cutter_count = len(self.cutter_ids)
+            self.cutter_count = sum(self.mapped('cutter_ids').mapped('total'))
         else:
             self.cutter_count = 0
     

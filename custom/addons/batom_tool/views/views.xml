@@ -8,6 +8,7 @@
                 <tree string="Cutter Model">
                     <field name="cutter_model_code"/>
                     <field name="cutter_class_id"/>
+                    <field name="cutter_count"/>
                     <field name="product_ids_code"/>
                     <field name="supplier_id"/>
                 </tree>
